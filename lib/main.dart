@@ -16,26 +16,32 @@ void main() {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            FlatButton(
-              onPressed: () {},
-              child: Text(
-                '+1',
-                style: TextStyle(
-                  fontSize: 40.0,
-                  color: Colors.white,
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: FlatButton(
+                onPressed: () {},
+                child: Text(
+                  '+1',
+                  style: TextStyle(
+                    fontSize: 40.0,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
-            FlatButton(
-              onPressed: () {},
-              child: Text(
-                '-1',
-                style: TextStyle(
-                  fontSize: 40.0,
-                  color: Colors.white,
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: FlatButton(
+                onPressed: () {},
+                child: Text(
+                  '-1',
+                  style: TextStyle(
+                    fontSize: 40.0,
+                    color: Colors.white,
+                  ),
                 ),
               ),
-            ),
+            )
           ],
         ),
         Text(
