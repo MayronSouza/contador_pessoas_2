@@ -1,6 +1,6 @@
-# contador_pessoas_2
+# Contador de pessoas 2
 
-A new Flutter project.
+App que serve para contar o número de pessoas em um determinado ambiente.
 
 ## Getting Started
 
