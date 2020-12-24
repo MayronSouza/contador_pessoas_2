@@ -3,7 +3,37 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
     title: 'Contador de Pessoas 2',
-    home: Stack(
+    home: Home(),
+    debugShowCheckedModeBanner: false,
+  ));
+}
+
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int _people = 0;
+  String _infoText = 'Pode Entrar!';
+
+  void _changePeople(int value) {
+    setState(() {
+      _people += value;
+
+      if (_people < 0) {
+        _infoText = 'Mundo Invertido?!';
+      } else if (_people <= 10) {
+        _infoText = 'Pode Entrar';
+      } else {
+        _infoText = 'Lotado';
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
       children: <Widget>[
         Image.asset(
           'images/restaurant.jpg',
@@ -14,7 +44,7 @@ void main() {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Pessoas: 0',
+              'Pessoas: $_people',
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -26,7 +56,9 @@ void main() {
                 Padding(
                   padding: EdgeInsets.all(10.0),
                   child: FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _changePeople(1);
+                    },
                     child: Text(
                       '+1',
                       style: TextStyle(
@@ -39,7 +71,9 @@ void main() {
                 Padding(
                   padding: EdgeInsets.all(10.0),
                   child: FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _changePeople(-1);
+                    },
                     child: Text(
                       '-1',
                       style: TextStyle(
@@ -52,7 +86,7 @@ void main() {
               ],
             ),
             Text(
-              'Pode Entrar!',
+              _infoText,
               style: TextStyle(
                 color: Colors.white,
                 fontStyle: FontStyle.italic,
@@ -62,7 +96,6 @@ void main() {
           ],
         ),
       ],
-    ),
-    debugShowCheckedModeBanner: false,
-  ));
+    );
+  }
 }
